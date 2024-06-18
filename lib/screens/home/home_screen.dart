@@ -17,7 +17,7 @@ class HomeScreen extends ConsumerWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: GridView.builder(
-          itemCount: 8,
+          itemCount: allProducts.length,
           gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
@@ -28,6 +28,13 @@ class HomeScreen extends ConsumerWidget {
             return Container(
               padding: const EdgeInsets.all(20),
               color: Colors.blueGrey.withOpacity(0.05),
+              child: Column(
+                children: [
+                  Image.asset(allProducts[index].image, width: 60, height: 60,),
+                  Text(allProducts[index].title),
+                  Text('€${allProducts[index].price}')
+                ],
+              ),
             );
           },
         ),
